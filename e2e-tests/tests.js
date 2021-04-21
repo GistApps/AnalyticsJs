@@ -3,10 +3,10 @@
 
 (function () {
   // js
-  require('../test/js-tests/test-button');
+  require('../test/js-tests/test-client');
 })();
 
-},{"../test/js-tests/test-button":7}],2:[function(require,module,exports){
+},{"../test/js-tests/test-client":7}],2:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -1313,11 +1313,11 @@ process.umask = function() { return 0; };
 
 /**
  * Button tests
- * @module test/js-tests/test-button
+ * @module test/js-tests/test-client
  */
 var assert = require('assert');
 
-describe('js/button.js', function () {
+describe('js/client.js', function () {
   it('should return true', function () {
     assert.equal(true, true);
   });

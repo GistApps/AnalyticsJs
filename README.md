@@ -11,12 +11,39 @@ Connect with Gist Analytics to write analytics data. This package can not be use
 
 ## Usage
 
+Modular Javascript:
+
 ```javascript
 > var gistAnalytics = require('gist-analytics');
 >
 > gistAnalytics.configure(`YOUR_PUBLIC_API_KEY`)
 > gistAnalytics.insert(name, value, meta = ['example_meta1' => 'example_meta1_value']);
 >
+```
+
+Include Directly:
+
+```html
+> <script src="/dist/js/client.min.js"></script>
+>
+> <script>
+>
+> var gistAnalytics = GIST.analytics.client;
+>
+> var query = {
+>  name: name,
+>  value: value,
+>  meta: {
+>    meta1: meta1val,
+>    meta2: meta2val
+>  }
+> }
+>
+> gistAnalytics.configure(`YOUR_PUBLIC_API_KEY`);
+>
+> gistAnalytics.send(query);
+>
+> </script>
 ```
 
 ## Contributing

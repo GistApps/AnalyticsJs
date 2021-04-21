@@ -61,12 +61,12 @@ function browserifyStream(pathname, opts) {
 
 function buildJs(dirname) {
   return makeTask('build-js: ' + dirname, function() {
-    return browserifyStream('./build-targets/seed.js')
+    return browserifyStream('./build-targets/client.js')
       .pipe(plugins.babel())
-      .pipe(plugins.rename('seed.js'))
+      .pipe(plugins.rename('client.js'))
       .pipe(gulp.dest(dirname))
       .pipe(plugins.uglify())
-      .pipe(plugins.rename('seed.min.js'))
+      .pipe(plugins.rename('client.min.js'))
       .pipe(gulp.dest(dirname));
   });
 }

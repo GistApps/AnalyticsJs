@@ -21,9 +21,10 @@ GIST.analytics.client = {
     production_url: 'http://analytics.gist-apps.com',
     sandbox_url: 'https://localhost:8000',
     path: '/api/public/events.json',
-    api_key
+    api_key: null,
+    sandbox: false
   },
-  configure: function(apiKey, sandbox) {
+  configure: function(api_key, sandbox) {
 
     GIST.analytics.client.params.api_key = api_key;
 
@@ -58,7 +59,7 @@ GIST.analytics.client = {
     .then(res => console.log(res))
     ;
 
-      
+
   }
 
 }
