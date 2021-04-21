@@ -5,7 +5,6 @@ Connect with Gist Analytics to write analytics data. This package can not be use
 
 ## Installation
 
-
  ```bash
  $ yarn add @gist/analytics
  ```
