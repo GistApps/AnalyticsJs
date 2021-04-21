@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "http-server": "^0.12.3",
-    "jest-cli": "^26.6.3"
+    "jest-cli": "^26.6.3",
+    "np": "^7.4.0"
   }
 }
