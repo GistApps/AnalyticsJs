@@ -2,7 +2,7 @@
   "author": "Zac Fair",
   "name": "gist-analytics",
   "description": "Public API wrapper to connect with Gist Analytics",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "gist-analytics.js",
   "scripts": {
     "build-all": "gulp build-all",
