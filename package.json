@@ -1,6 +1,6 @@
 {
   "author": "Zac Fair",
-  "name": "@gist/analytics",
+  "name": "gist-analytics",
   "description": "Public API wrapper to connect with Gist Analytics",
   "version": "0.0.1",
   "main": "gist-analytics.js",
