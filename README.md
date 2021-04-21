@@ -1,7 +1,14 @@
 # Gist Analytics
 
-This library is based off of js-seed - thank you! https://github.com/muicss/js-seed
 Connect with Gist Analytics to write analytics data. This package can not be used to read data from the Gist Analytics API.
+
+Sign up for Gist Analytics at https://analytics.gist-apps.com/register
+
+Register your application, and make note of the Access token generated. This
+token will only be displayed once, so make sure to save the record of it.
+
+This library is based off of js-seed - thank you! https://github.com/muicss/js-seed
+
 
 ## Installation
 
