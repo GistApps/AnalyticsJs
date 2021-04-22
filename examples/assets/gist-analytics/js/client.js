@@ -1,8 +1,6 @@
 "use strict";
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 (function () {
   function r(e, n, t) {
@@ -53,23 +51,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
      * JS-Seed Vanilla-JS button module
      * @module button
      */
-    if (typeof GIST == 'undefined') {
-      GIST = {};
+    if ((typeof GIST === "undefined" ? "undefined" : _typeof(GIST)) != 'object') {
+      window.GIST = {};
+    } else {
+      window.GIST = window.GIST || {};
     }
 
     if (typeof GIST.analytics == 'undefined') {
       GIST.analytics = {};
     }
 
-    if (typeof GIST.analytics.client != 'undefined') {
-      console.warn("Gist analytics is already loaded");
-      return;
-    }
-
     GIST.analytics.client = {
       params: {
-        production_url: 'http://analytics.gist-apps.com',
-        sandbox_url: 'https://localhost:8000',
+        production_url: '//analytics.gist-apps.com',
+        sandbox_url: '//localhost:8000',
         path: '/api/public/events.json',
         api_key: null,
         sandbox: false
@@ -80,53 +75,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       },
       url: function url() {
         if (GIST.analytics.client.params.sandbox === true) {
-          return "".concat(GIST.analytics.client.params.sandbox_url).concat(GIST.analytics.client.params.path, "?api_key=").concat(GIST.analytics.client.params.api_key);
+          return "".concat(GIST.analytics.client.params.sandbox_url).concat(GIST.analytics.client.params.path);
         } else {
-          return "".concat(GIST.analytics.client.params.production_url).concat(GIST.analytics.client.params.path, "?api_key=").concat(GIST.analytics.client.params.api_key);
+          return "".concat(GIST.analytics.client.params.production_url).concat(GIST.analytics.client.params.path);
         }
       },
-      send: function () {
-        var _send = _asyncToGenerator(
-        /*#__PURE__*/
-        regeneratorRuntime.mark(function _callee(query) {
-          var url, params;
-          return regeneratorRuntime.wrap(function _callee$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  url = GIST.analytics.client.url();
-                  params = {
-                    method: 'post',
-                    headers: {
-                      'Accept': 'application/json, text/plain, */*',
-                      'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(query)
-                  };
-                  _context.next = 4;
-                  return fetch(url, params).then(function (res) {
-                    return res.json();
-                  }).then(function (res) {
-                    return console.log(res);
-                  });
-
-                case 4:
-                  return _context.abrupt("return", _context.sent);
-
-                case 5:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }, _callee, this);
-        }));
-
-        function send(_x) {
-          return _send.apply(this, arguments);
-        }
-
-        return send;
-      }()
+      send: function send(query) {
+        var url = GIST.analytics.client.url();
+        query.api_key = GIST.analytics.client.params.api_key;
+        var request = new Request(url, {
+          method: 'POST',
+          headers: new Headers({
+            'Content-Type': 'application/json'
+          }),
+          body: JSON.stringify(query)
+        });
+        fetch(request).then(function (response) {
+          return response.json();
+        }).then(function (j) {
+          return j;
+        }).catch(function (error) {
+          return console.log('error', error);
+        });
+      }
       /** Define module API */
 
     };
