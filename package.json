@@ -3,7 +3,7 @@
   "name": "gist-analytics",
   "license": "MIT",
   "description": "Public API wrapper to connect with Gist Analytics",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "main": "gist-analytics.js",
   "scripts": {
     "build-all": "gulp build-all",
